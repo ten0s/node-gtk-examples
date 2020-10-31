@@ -10,7 +10,7 @@ Run
 
 ```
 $ npm install
-$ node ch3/helloWorld.js
+$ node ch3-Simple-Applications/HelloWorld.js
 ```
 
 References
