@@ -38,7 +38,7 @@ class App extends Gtk.Application {
     onActivate() {
         if (!this.window) {
             this.window = new AppWindow({
-                title: 'Tables',
+                title: 'Fixed',
             });
             this.window.showAll();
         }
