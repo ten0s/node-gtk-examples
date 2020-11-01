@@ -10,14 +10,14 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setBorderWidth(10);
+        this.setSizeRequest(200, 100);
+
         const expander = new Gtk.Expander.newWithMnemonic('Click _Me For More!');
         const label = new Gtk.Label({label: 'Hide me or show me,\nthat is your choice.'});
         expander.add(label);
         expander.setExpanded(true);
         this.add(expander);
-
-        this.setBorderWidth(10);
-        this.setSizeRequest(200, 100);
     }
 }
 

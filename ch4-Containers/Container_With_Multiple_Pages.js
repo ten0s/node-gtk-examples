@@ -10,6 +10,9 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setBorderWidth(10);
+        this.setSizeRequest(250, 100);
+
         const notebook = new Gtk.Notebook();
         const label1 = new Gtk.Label({label: 'Page 1'});
         const label2 = new Gtk.Label({label: 'Page 2'});
@@ -20,9 +23,6 @@ class AppWindow extends Gtk.ApplicationWindow {
 
         notebook.setTabPos(Gtk.PositionType.BOTTOM);
         this.add(notebook);
-
-        this.setBorderWidth(10);
-        this.setSizeRequest(250, 100);
     }
 }
 

@@ -10,11 +10,12 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setSizeRequest(200, 100);
+        
         this.label = new Gtk.Label({label: 'Bunny'});
         this.add(this.label);
         
         this.on('key-press-event', () => this.onKeyPress());
-        this.setSizeRequest(200, 100);
     }
 
     onKeyPress() {

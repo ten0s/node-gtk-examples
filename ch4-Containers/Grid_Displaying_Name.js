@@ -10,6 +10,9 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setBorderWidth(10);
+        this.setSizeRequest(150, 100);
+
         const grid = new Gtk.Grid();
         const label1 = new Gtk.Label({label: 'Enter the following information ...'});
         const label2 = new Gtk.Label({label: 'Name: '});
@@ -20,9 +23,6 @@ class AppWindow extends Gtk.ApplicationWindow {
         grid.setRowSpacing(5);
         grid.setColumnSpacing(5);
         this.add(grid);
-        
-        this.setBorderWidth(10);
-        this.setSizeRequest(150, 100);
     }
 }
 

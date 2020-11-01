@@ -12,6 +12,9 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setBorderWidth(10);
+        this.setSizeRequest(200, -1);
+
         const vbox = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 0,
@@ -22,8 +25,6 @@ class AppWindow extends Gtk.ApplicationWindow {
             button.on('clicked', () => this.onButtonClicked());
             button.setRelief(Gtk.ReliefStyle.NORMAL);
         }
-        this.setBorderWidth(10);
-        this.setSizeRequest(200, -1);
         this.add(vbox);
     }
 

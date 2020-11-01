@@ -10,6 +10,9 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setBorderWidth(10);
+        this.setSizeRequest(225, 150);
+
         const hpaned = new Gtk.Paned(Gtk.Orientation.HORIZONTAL);
         const button1 = new Gtk.Button({label: 'Resize'});
         const button2 = new Gtk.Button({label: 'Me!'});
@@ -19,9 +22,6 @@ class AppWindow extends Gtk.ApplicationWindow {
         hpaned.add2(button2);
         hpaned.setPosition(100);
         this.add(hpaned);
-        
-        this.setBorderWidth(10);
-        this.setSizeRequest(225, 150);
     }
 
     onButtonClicked() {

@@ -11,6 +11,9 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setBorderWidth(10);
+        this.setSizeRequest(200, 50);
+
         const eventbox = new Gtk.EventBox();
         const label = new Gtk.Label({label: 'Double-Click Me!'});
         eventbox.setAboveChild(false);
@@ -19,9 +22,6 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.add(eventbox);
         eventbox.setEvents(Gdk.EventMask.BUTTON_PRESS_MASK);
         eventbox.realize();
-
-        this.setBorderWidth(10);
-        this.setSizeRequest(200, 50);
     }
 
     onButtonPressed(eventbox, event, label) {

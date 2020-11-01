@@ -10,6 +10,8 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('show', Gtk.main);
         this.on('destroy', Gtk.mainQuit);
 
+        this.setSizeRequest(200, 100);
+        
         const label = new Gtk.Label({
             label: 'Hello World!',
             selectable: true,
@@ -21,7 +23,6 @@ class AppWindow extends Gtk.ApplicationWindow {
         */
         
         this.add(label);
-        this.setSizeRequest(200, 100);
     }
 }
 

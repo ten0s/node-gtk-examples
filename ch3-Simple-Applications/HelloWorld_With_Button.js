@@ -11,12 +11,12 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.on('destroy', Gtk.mainQuit);
 
         this.setBorderWidth(25);
+        this.setSizeRequest(200, 100);
+        
         const button = new Gtk.Button.newWithMnemonic('_Close');
         button.on('clicked', () => this.onButtonClicked());
         button.setRelief(Gtk.ReliefStyle.NORMAL);
         this.add(button);
-
-        this.setSizeRequest(200, 100);
     }
 
     onButtonClicked() {
