@@ -16,6 +16,10 @@ class AppWindow extends Gtk.ApplicationWindow {
         const radio2 = new Gtk.RadioButton.newWithLabelFromWidget(radio1, 'Click me instead!');
         const radio3 = new Gtk.RadioButton.newWithLabelFromWidget(radio1, 'No! Click me!');
         const radio4 = new Gtk.RadioButton.newWithLabelFromWidget(radio3, 'No! Click me instead!');
+        radio1.on('toggled', () => this.onButtonToggled(radio1));
+        radio2.on('toggled', () => this.onButtonToggled(radio2));
+        radio3.on('toggled', () => this.onButtonToggled(radio3));
+        radio4.on('toggled', () => this.onButtonToggled(radio4));
         const vbox = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 0
@@ -25,6 +29,12 @@ class AppWindow extends Gtk.ApplicationWindow {
         vbox.packStart(radio3, false, false, 0);
         vbox.packStart(radio4, false, false, 0);
         this.add(vbox);
+    }
+
+    onButtonToggled(self) {
+        if (self.active) {
+            console.log(self.getLabel());
+        }
     }
 }
 
