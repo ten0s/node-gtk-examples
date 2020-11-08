@@ -14,8 +14,6 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.setSizeRequest(180, 100);
 
         const adj1 = new Gtk.Adjustment({
-            // BUG: default value is not set
-            value: 5.0,
             lower: 0.0,
             upper: 10.0,
             step_increment: 1.0,
@@ -27,8 +25,6 @@ class AppWindow extends Gtk.ApplicationWindow {
         spin1.setValue(5);
         
         const adj2 = new Gtk.Adjustment({
-            // BUG: default value is not set
-            value: 0.5,
             lower: 0.0,
             upper: 1.0,
         });
