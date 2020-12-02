@@ -15,7 +15,7 @@ class AppWindow extends Gtk.ApplicationWindow {
         const radio1 = new Gtk.RadioButton.newWithLabel(null, 'I want to be clicked!');
         const radio2 = new Gtk.RadioButton.newWithLabelFromWidget(radio1, 'Click me instead!');
         const radio3 = new Gtk.RadioButton.newWithLabelFromWidget(radio1, 'No! Click me!');
-        const radio4 = new Gtk.RadioButton.newWithLabelFromWidget(radio3, 'No! Click me instead!');
+        const radio4 = new Gtk.RadioButton.newWithLabelFromWidget(radio1, 'No! Click me instead!');
         radio1.on('toggled', () => this.onButtonToggled(radio1));
         radio2.on('toggled', () => this.onButtonToggled(radio2));
         radio3.on('toggled', () => this.onButtonToggled(radio3));
