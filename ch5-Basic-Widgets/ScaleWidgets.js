@@ -17,11 +17,15 @@ class AppWindow extends Gtk.ApplicationWindow {
             Gtk.Orientation.HORIZONTAL, 0.0, 10.0, 1.0);
         scaleInt.setDigits(0);
         scaleInt.setValuePos(Gtk.PositionType.RIGHT);
+        scaleInt.setValue(5);
+        scaleInt.on('value-changed', () => this.onValueChanged('int', scaleInt));
         
         const scaleFloat = new Gtk.Scale.newWithRange(
             Gtk.Orientation.HORIZONTAL, 0.0, 1.0, 0.1);
         scaleFloat.setDigits(1);
         scaleFloat.setValuePos(Gtk.PositionType.LEFT);
+        scaleFloat.setValue(0.5);
+        scaleFloat.on('value-changed', () => this.onValueChanged('float', scaleFloat));
         
         const vbox = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
@@ -30,6 +34,11 @@ class AppWindow extends Gtk.ApplicationWindow {
         vbox.packStart(scaleInt, false, false, 5);
         vbox.packStart(scaleFloat, false, false, 5);
         this.add(vbox);
+    }
+
+    onValueChanged(what, scale) {
+        const value = scale.getValue();
+        console.log(`${what}: ${value}`);
     }
 }
 
