@@ -13,21 +13,29 @@ class AppWindow extends Gtk.ApplicationWindow {
         this.setBorderWidth(10);
         this.setSizeRequest(230, 100);
         
-        const button = new Gtk.Button();
+        // Image
+        const iconTheme = Gtk.IconTheme.getDefault();
+        const icon = iconTheme.loadIcon('window-close', -1, Gtk.IconLookupFlags.FORCE_SIZE);
+        const image = new Gtk.Image.newFromPixbuf(icon);
+        
+        // Label
+        const label = new Gtk.Label.newWithMnemonic('_Close');
+
+        // Horizontal Box
         const hbox = new Gtk.Box({
             orientation: Gtk.Orientation.HORIZONTAL,
             spacing: 0
         });
-        const iconTheme = Gtk.IconTheme.getDefault();
-        const icon = iconTheme.loadIcon('window-close', -1, Gtk.IconLookupFlags.FORCE_SIZE);
-        const image = new Gtk.Image.newFromPixbuf(icon);
         hbox.add(image);
-        const label = new Gtk.Label.newWithMnemonic('_Close');
         hbox.add(label);
         hbox.setHomogeneous(true);
+        
+        // Image Button
+        const button = new Gtk.Button();
         button.add(hbox);
         button.on('clicked', () => this.onButtonClicked());
         button.setRelief(Gtk.ReliefStyle.NORMAL);
+        
         this.add(button);
     }
 
