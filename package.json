@@ -9,6 +9,6 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "node-gtk": "ten0s/node-gtk#windows-build"
+        "node-gtk": "github:ten0s/node-gtk#windows-build"
     }
 }
